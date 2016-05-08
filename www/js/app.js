@@ -29,25 +29,31 @@ angular.module('starter', ['ionic'])
   $scope.recognizedText = '';
  
   $scope.speakText = function() {
-    window.TTS.speak({
+   
+    TTS.speak({
            text: $scope.data.speechText,
-           locale: 'en-GB',
-           rate: 1.5
+           locale: 'es-ES',
+           rate: 0.75
        }, function () {
-           // Do Something after success
+      alert("success");
        }, function (reason) {
            // Handle the error case
        });
+    
   };
  
   $scope.record = function() {
-    var recognition = new SpeechRecognition();
+    // var recognition = new webkitSpeechRecognition(); //To Computer
+    var recognition = new SpeechRecognition(); // To Device
+    recognition.lang = 'es-ES';
+    
     recognition.onresult = function(event) {
         if (event.results.length > 0) {
             $scope.recognizedText = event.results[0][0].transcript;
-            $scope.$apply()
+            $scope.$apply();
         }
     };
+    
     recognition.start();
   };
 });
