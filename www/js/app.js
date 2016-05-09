@@ -43,9 +43,10 @@ angular.module('starter', ['ionic'])
   };
  
   $scope.record = function() {
-    // var recognition = new webkitSpeechRecognition(); //To Computer
-    var recognition = new SpeechRecognition(); // To Device
-    recognition.lang = 'es-ES';
+     var recognition = new webkitSpeechRecognition(); //To Computer
+   // var recognition = new SpeechRecognition(); // To Device
+    //recognition.lang = 'es-ES';
+    recognition.lang = 'en-GB';
     
     recognition.onresult = function(event) {
         if (event.results.length > 0) {
