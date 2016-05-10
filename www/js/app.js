@@ -46,11 +46,13 @@ angular.module('starter', ['ionic'])
      var recognition = new webkitSpeechRecognition(); //To Computer
    // var recognition = new SpeechRecognition(); // To Device
     //recognition.lang = 'es-ES';
+	
     recognition.lang = 'en-GB';
     
     recognition.onresult = function(event) {
         if (event.results.length > 0) {
             $scope.recognizedText = event.results[0][0].transcript;
+            alert($scope.recognizedText);
             $scope.$apply();
         }
     };
